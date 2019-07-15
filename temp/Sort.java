@@ -6,9 +6,12 @@ public class Sort {
 
 	public static void main(String[] args) {
 		int[] arr = { 56, 21, 48, 6, 95, 23, 4, 98, 23, 56, 78 };
+
 		// bubbleSort(arr);
 		// insertionSort(arr);
-		selectionSort(arr);
+		// selectionSort(arr);
+		shellSort(arr);
+
 		System.out.println(Arrays.toString(arr));
 	}
 
@@ -32,7 +35,7 @@ public class Sort {
 			int key = arr[i];
 			while (j >= 0 && arr[j] > key) {
 				arr[j + 1] = arr[j];
-				j--;
+				j = j - 1;
 			}
 			arr[j + 1] = key;
 		}
@@ -41,12 +44,24 @@ public class Sort {
 	/**
 	 * 希尔排序<br>
 	 * 是插入排序的改进版本<br>
-	 * 基于插入排序的性质：1.对几乎已排序好的数据操作效率高  2.每次只能将数据移动一位,相当低效
+	 * 基于插入排序的性质：1.对几乎已排序好的数据操作效率高 2.每次只能将数据移动一位,相当低效
 	 * 
 	 * @param arr
 	 */
 	private static void shellSort(int[] arr) {
-
+		int num = arr.length / 2;
+		while (num >= 1) {
+			for (int i = num; i < arr.length; i++) {
+				int key = arr[i];
+				int j = i - num;
+				while (j >= 0 && arr[j] > key) {
+					arr[j + num] = arr[j];
+					j = j - num;
+				}
+				arr[j + num] = key;
+			}
+			num = num / 2;
+		}
 	}
 
 	/**
