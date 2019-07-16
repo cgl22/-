@@ -7,10 +7,12 @@ public class Sort {
 	public static void main(String[] args) {
 		int[] arr = { 56, 21, 48, 6, 95, 23, 4, 98, 23, 56, 78 };
 
-		// bubbleSort(arr);
 		// insertionSort(arr);
+		// shellSort(arr);
 		// selectionSort(arr);
-		shellSort(arr);
+		// heapSort(arr);
+		// bubbleSort(arr);
+		quickSort(arr);
 
 		System.out.println(Arrays.toString(arr));
 	}
@@ -86,6 +88,55 @@ public class Sort {
 	}
 
 	/**
+	 * 堆排序
+	 * 
+	 * @param arr
+	 */
+	private static void heapSort(int[] arr) {
+		// 数组下标从0开始
+		int len = arr.length - 1;
+		// 最后一个非叶子节点的位置
+		int beginIndex = arr.length / 2 - 1;
+		// 构造大顶堆
+		for (int i = beginIndex; i >= 0; i--) {
+			maxHeapify(i, len, arr);
+		}
+		// 将根节点（最大）与未排序序列末位元素交换
+		// 交换后验证根节点是否满足堆的定义， 并调整
+		for (int i = len; i > 0; i--) {
+			swap(arr, i, 0);
+			maxHeapify(0, i - 1, arr);
+		}
+	}
+
+	/**
+	 * 调整位置为index处的节点，使其数据满足堆的定义
+	 * 
+	 * @param index
+	 * @param len
+	 *            未堆化处理的序列长度
+	 * @param arr
+	 */
+	private static void maxHeapify(int index, int len, int[] arr) {
+		int leftChild = index * 2 + 1;
+		int rightChild = leftChild + 1;
+		// 若左子节点越界则直接返回
+		if (leftChild > len) {
+			return;
+		}
+		// 比较左右子节点大小
+		int maxChild = leftChild;
+		if (rightChild <= len && arr[rightChild] > arr[leftChild]) {
+			maxChild = rightChild;
+		}
+		// 若较大的子节点大于父节点，则交换，并继续验证交换后的父节点是否满足堆的定义
+		if (arr[maxChild] > arr[index]) {
+			swap(arr, maxChild, index);
+			maxHeapify(maxChild, len, arr);
+		}
+	}
+
+	/**
 	 * 冒泡排序<br>
 	 * 每一轮选出最大的放在最后
 	 * 
@@ -106,4 +157,45 @@ public class Sort {
 		} while (changed);
 	}
 
+	/**
+	 * 快速排序<br>
+	 * 挑选基准值，将比基准值小的放在前面，大的放在后面<br>
+	 * 递归执行
+	 * 
+	 * @param arr
+	 */
+	private static void quickSort(int[] arr) {
+		qSort(arr, 0, arr.length - 1);
+	}
+
+	private static void qSort(int[] arr, int begin, int end) {
+		if (begin >= end || arr == null || arr.length <= 1) {
+			return;
+		}
+		int i = begin, j = end;
+		// 选取基准值
+		int pivot = arr[(begin + end) / 2];
+		while (i <= j) {
+			// 从i开始往后找到大于等于pivot的值
+			while (arr[i] < pivot) {
+				i++;
+			}
+			// 从j开始往前找到小于等于pivot的值
+			while (arr[j] > pivot) {
+				j--;
+			}
+			// 交换
+			// 若i >= j则说明此轮排序过程完成
+			if (i < j) {
+				swap(arr, i, j);
+				i++;
+				j--;
+			} else if (i == j) {
+				i++;
+			}
+		}
+		// i > j
+		qSort(arr, begin, j);
+		qSort(arr, i, end);
+	}
 }
