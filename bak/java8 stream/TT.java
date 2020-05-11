@@ -107,8 +107,6 @@ public class TT {
 		System.out.println("----findAny----");
 		System.out.println(list.stream().unordered().findAny().get());
 		System.out.println(list.parallelStream().findAny().get());
-		System.out.println("----unordered----");
-		list.parallelStream().unordered().peek(System.out::println).forEach(System.out::println);
 
 	}
 }
