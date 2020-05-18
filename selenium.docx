@@ -1,0 +1,119 @@
+﻿#chrome驱动
+http://npm.taobao.org/mirrors/chromedriver/
+
+
+
+#selenium
+
+#maven仓库
+https://mvnrepository.com/
+
+#资料
+http://www.testclass.net/
+
+
+mvn -B archetype:generate \
+  -DarchetypeGroupId=org.apache.maven.archetypes \
+  -DgroupId=cn.infisa \
+  -DartifactId=selenium_test
+
+<dependencies>
+	<dependency>
+		<groupId>junit</groupId>
+		<artifactId>junit</artifactId>
+		<version>4.11</version>
+		<scope>test</scope>
+	</dependency>
+	<dependency>
+		<groupId>org.seleniumhq.selenium</groupId>
+		<artifactId>selenium-java</artifactId>
+		<version>3.141.59</version>
+	</dependency>
+</dependencies>
+
+nexus私服缺少guava包
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#安装robotframework
+apt install python
+apt install pip
+pip install robotframework
+
+#编辑器
+https://robotframework.org/#tools
+pip install robotframework-ride
+
+#安装selenium扩展库
+pip install --upgrade robotframework-selenium2library
+
+
+
+
+vsCode插件
+TomiTurtiainen.rf-intellisense
+
+
+#selenium库&文档
+https://github.com/robotframework/SeleniumLibrary/#
+
+https://robotframework.org/SeleniumLibrary/SeleniumLibrary.html
+
+
+
+#文档
+https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#configuring-execution
+
+当Robot Framework解析数据时，它首先将数据拆分为几行，然后将其拆分为诸如关键字和参数之类的标记。使用空格分隔格式时，标记之间的分隔符是两个或多个空格，或者一个或多个制表符。
+
+
+
+css选择器
+https://www.w3school.com.cn/cssref/css_selectors.asp
+
+
+
+
+
+chrome启动选项
+https://peter.sh/experiments/chromium-command-line-switches/
+
+
+
+
+
+
+
+待确认方案、待随访人数、待建档人数
+
+
+
+
+
+
+
+
+
+#QQQQQQQ
+
+#编辑患者基本信息时联系方式自动清空
+
+
+
+#元素不可点击（我遇到的是一个a标签无法点击，链接中解决方案6）
+org.openqa.selenium.ElementClickInterceptedException: element click intercepted:
+xxxxxx  is not clickable at point (1746, 934).
+
+https://stackoverflow.com/questions/44912203/selenium-web-driver-java-element-is-not-clickable-at-point-x-y-other-elem
