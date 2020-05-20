@@ -1,0 +1,134 @@
+﻿Robot Framework
+https://robotframework.org/
+
+
+简介：
+robotframework是一个基于Python的，可扩展的关键字驱动的测试自动化框架。
+提供易于阅读的结果报告和HTML格式的日志。
+平台和应用程序是独立的。
+具有高度模块化的架构。
+
+
+安装：(ubuntu)
+
+apt install python
+apt install pip
+
+#安装robotframework
+pip install robotframework
+
+#安装selenium扩展库
+pip install --upgrade robotframework-selenium2library
+
+#编辑器选择
+从官网选择自己喜欢的
+
+#脚本启动
+单个文件/整个文件夹
+robot xxx.robot
+robot /dir
+
+
+
+Demo与语法：
+
+当Robot Framework解析数据时，它首先将数据拆分为几行，然后将其拆分为诸如关键字和参数之类的标记。使用空格分隔格式时，标记之间的分隔符是两个或多个空格，或者一个或多个制表符。
+
+分为Settings、varibles、test cases、keywords。
+
+除了FOR循环相关关键字：FOR IN END等。其它不做大小写区分。
+
+断言信息参照built-in标准库
+
+keywords中return不会立即返回，而是继续向下执行。
+
+#chrome驱动
+http://npm.taobao.org/mirrors/chromedriver/
+chrome启动选项
+https://peter.sh/experiments/chromium-command-line-switches/
+
+#rf标准库文档
+http://robotframework.org/robotframework/#standard-libraries
+
+#selenium库&文档
+https://github.com/robotframework/SeleniumLibrary
+https://robotframework.org/SeleniumLibrary/SeleniumLibrary.html
+
+Xpath定位:
+https://www.w3school.com.cn/xpath/index.asp
+cssSelector定位:
+https://www.w3school.com.cn/cssref/css_selectors.asp
+
+#python定位(通过父元素获取子元素时使用)
+https://www.cnblogs.com/yoyoketang/p/6557421.html
+
+
+#rf文档
+https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#configuring-execution
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#selenium
+
+#maven仓库
+https://mvnrepository.com/
+
+#资料
+http://www.testclass.net/
+
+
+mvn -B archetype:generate \
+  -DarchetypeGroupId=org.apache.maven.archetypes \
+  -DgroupId=cn.infisa \
+  -DartifactId=selenium_test
+
+<dependencies>
+	<dependency>
+		<groupId>junit</groupId>
+		<artifactId>junit</artifactId>
+		<version>4.11</version>
+		<scope>test</scope>
+	</dependency>
+	<dependency>
+		<groupId>org.seleniumhq.selenium</groupId>
+		<artifactId>selenium-java</artifactId>
+		<version>3.141.59</version>
+	</dependency>
+</dependencies>
+
+nexus私服缺少guava包
+
+#元素不可点击（我遇到的是一个a标签无法点击，链接中解决方案6）
+org.openqa.selenium.ElementClickInterceptedException: element click intercepted:
+xxxxxx  is not clickable at point (1746, 934).
+
+https://stackoverflow.com/questions/44912203/selenium-web-driver-java-element-is-not-clickable-at-point-x-y-other-elem
