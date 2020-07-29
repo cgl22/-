@@ -1,0 +1,3 @@
+
+threadlocal的可靠性，出现get之前发生gc，get到null的情况。
+声明为static。
